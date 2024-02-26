@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>中国铁路12306网站</title>
+    <!-- 样式标签 -->
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <!-- 内容板块开始 -->
+    <div class="container">
+        <!-- 头部开始 -->
+        <div class="header">
+            <!-- 头部开始 -->
+            <iframe src="component/heard2.html" id="heard2" width=100% height=80px marginwidth=0 marginheight=0
+                frameborder="0" scrolling="no" name="_top">
+                <a>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+            </iframe>
+            <!-- 头部结束 -->
+            <!-- 头部导航栏 -->
+            <iframe src="component/nav.html" width=100% height=40px marginwidth=0 marginheight=0 frameborder="0"
+                scrolling="no">
+                <a>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+            </iframe>
+            <!-- 头部导航栏结束 -->
+        </div>
+        <!-- 头部结束 -->
+        <!-- 内容区域开始 -->
+        <div class="main">
+            <!--当前位置 开始-->
+            <div class="crumbs">
+                您现在的位置：<a href="" shape="rect">客运首页</a>
+                &nbsp;&gt;&nbsp;<a href="" shape="rect">注册</a>
+            </div>
+            <!--当前位置 结束-->
+            <!-- 注册表单开始 -->
+            <div id="registForm">
+                <div class="layout reg">
+                    <div class="lay-hd">账户信息</div>
+                    <div class="lay-bd">
+                        <ul class="reg-list">
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    用 户 名：</div>
+                                <div class="r-txt"><input type="text" placeholder="用户名设置成功后不可修改" class="inptxt"
+                                        name="loginUserDTO.user_name" id="userName" maxlength="30"
+                                        title="请输入您的用户名，注意：用户名设置成功后不可修改" aria-label="请输入您的用户名，注意：用户名设置成功后不可修改"
+                                        style="color: rgb(51, 51, 51);"
+                                        onblur="checkEmptyTips(this,'手机号码不能为空','iok_userName')">
+                                </div>
+                                <div class="tips" id="iok_userName">
+                                    6-30位字母、数字或“_”,字母开头
+                                </div>
+                            </li>
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    登录密码：</div>
+                                <div class="r-txt"><input placeholder="6-20位字母、数字或符号"
+                                        onkeyup="checkPwdRank(this,'_div_password_rank','_span_password_rank')"
+                                        class="inptxt w200" name="userDTO.password" id="passWord" type="password"
+                                        maxlength="25" title="请输入您的登录密码，注意：登录密码为6-20位字母、数字或符号"
+                                        aria-label="请输入您的登录密码，注意：登录密码为6-20位字母、数字或符号" style="color: rgb(51, 51, 51);">
+                                </div>
+                                <div class="tips"><span></span>
+                                    <div id="_div_password_rank" class="safe-rank rank-a" title="请输入密码！">
+                                        <!--危险rank-a,一般rank-b,安全rank-c-->
+                                        <span class="s1"></span>
+                                        <span class="s2"></span>
+                                        <span class="s3"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    确认密码：</div>
+                                <div class="r-txt"><input placeholder="再次输入您的登录密码" class="inptxt w200"
+                                        name="confirmPassWord" id="confirmPassWord" type="password" maxlength="25"
+                                        title="再次输入您的登录密码" aria-label="再次输入您的登录密码" style="color: rgb(51, 51, 51);">
+                                </div>
+                                <div class="tips"><span id="iok_confirmPassWord" class="tips i-ok"
+                                        style="margin-top: 10px;margin-right: 5px;display:none;"></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    证件类型：</div>
+                                <div class="r-txt"><input name="loginUserDTO.id_type_code" id="cardTypeCode" value="1"
+                                        type="hidden">
+                                    <select class="w200sel" id="cardType" aria-label="请选择您的证件类型" title="请选择您的证件类型">
+                                        <option value="1">中国居民身份证
+                                        </option>
+                                        <option value="1">港澳台居民居住证
+                                        </option>
+                                        <option value="C">港澳居民来往内地通行证
+                                        </option>
+                                        <option value="G">台湾居民来往大陆通行证
+                                        </option>
+                                        <option value="B">护照
+                                        </option>
+                                        <option value="H">外国人永久居留身份证
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="tips" id="GAT_idno_rule" name="tips_GAT" style="display:none;"><a style="color: #FF7F00;text-decoration: underline; cursor: pointer;"
+                                        shape="rect">证件填写规则</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    姓 名：</div>
+                                <div class="r-txt"><input id="regist_name" placeholder="请输入姓名" type="text"
+                                        class="inptxt w200" name="loginUserDTO.name" maxlength="70" title="请输入姓名"
+                                        aria-label="请输入姓名">
+                                </div>
+                                <div class="tips" id="name_rule" οnmοuseοver="mOver(this)" οnmοuseοut="mOut(this)"><a
+                                        style="color: #FF7F00;text-decoration: underline;" shape="rect">姓名填写规则</a>
+                                    （用于身份核验，请正确填写）</div>
+                            </li>
+                            <li id="li_usural_id_type">
+                                <div class="label"><span class="required">*</span>
+                                    证件号码：</div>
+                                <div class="r-txt">
+                                    <div class="pos-rel"><input placeholder="请输入您的证件号码" type="text"
+                                            name="loginUserDTO.id_no" id="cardCode" class="inptxt w200 color333"
+                                            maxlength="18" value="" title="请输入您的证件号码" aria-label="请输入您的证件号码">
+                                        <div class="inp-focus inp-focus-card" id="cardCode_div" style="display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tips" style="color: #FF7F00;">（用于身份核验，请正确填写）</div>
+                            </li>
+                            <li name="li_GAT" style="display: none;">
+                                <div class="label"><span class="required">*</span>
+                                    证件有效期截止日期：</div>
+                                <div class="r-txt"><input id="id_limit_date_end" name="loginUserDTO.GAT_valid_date_end"
+                                        type="text" class="inptxt w200 color333" value="" aria-label="请输入证件有效期截止日期"
+                                        title="请输入证件有效期截止日期">
+                                </div>
+                                <div name="tips_GAT" class="tips" style="color: #FF7F00;display:none">（用于身份核验，请正确填写）
+                                </div>
+                            </li>
+                            <li style="display: none;" class="cardLi">
+                                <div class="label"><span class="required">*</span>
+                                    出生日期：</div>
+                                <div class="r-txt"><input type="text" class="inptxt w200 color333"
+                                        name="userDTO.born_date" id="born_date" value="" aria-label="请输入出生日期"
+                                        title="请输入出生日期">
+                                </div>
+                                <div name="tips_GAT" class="tips" style="color: #FF7F00;display:none">（用于身份核验，请正确填写）
+                                </div>
+                            </li>
+                            <li style="display: none;" class="cardLi">
+                                <div class="label"><span class="required">*</span>
+                                    性 别：</div>
+                                <div class="r-txt"><span class="mr25"><input type="radio" name="userDTO.sex_code"
+                                            value="M" title="请选择您的性别，当前为男，可以使用键盘的上下键进行选择，按空格键选中"
+                                            aria-label="请选择您的性别，当前为男，可以使用键盘的上下键进行选择，按空格键选中">
+                                        <label>男</label>
+                                    </span>
+                                    <span><input type="radio" name="userDTO.sex_code" value="F"
+                                            title="请选择您的性别，当前为女，可以使用键盘的上下键进行选择，按空格键选中"
+                                            aria-label="请选择您的性别，当前为女，可以使用键盘的上下键进行选择，按空格键选中">
+                                        <label>女</label>
+                                    </span>
+                                </div>
+                            </li>
+                            <li style="display: none;" class="gjLi">
+                                <div class="label"><span class="required">*</span>
+                                    国家/地区：</div>
+                                <div class="r-txt"><select class="w200sel" name="userDTO.country_code" id="nation"
+                                        aria-label="请选择国家/地区" title="请选择国家/地区">
+                                        <option value="CN">中国China
+                                        </option>
+                                        <option value="ZM">赞比亚Zambia
+                                        </option>
+                                        <option value="ZW">津巴布韦Zimbabwe
+                                        </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="label"><span class="required">*</span>
+                                    优惠（待）类型：</div>
+                                <div class="r-txt"><select class="w200sel" id="passengerType" name="passenger_type"
+                                        aria-label="请选择旅客类型" title="请选择旅客类型">
+                                        <option value="1">成人</option>
+                                        <option value="2">儿童</option>
+                                        <option value="3">学生</option>
+                                        <option value="4">残疾军人</option>
+                                    </select>
+                                </div>
+                                <div id="student_alert" class="tips"
+                                    style="color: #FF7F00;display: none;margin-left: 0px;margin-top: 20px;">
+                                    未办理学生优惠资质核验的用户，购买学生票前须使用本人12306账号在铁路12306APP学生优惠专区中完成学生优惠资质采集，或持有效证件在车站窗口办理学生优惠资质采集后乘车。
+                                </div>
+                            </li>
+                            <li style="height: 1px;border-top: 1px dashed #DEDEDE;margin: 15px 0;"></li>
+                            <li>
+                                <div class="label">邮 箱：</div>
+                                <div class="r-txt">
+                                    <ul class="emailist"
+                                        style="position: absolute; margin-top: 30px; min-width: 200px; visibility: hidden; z-index: 11;">
+                                    </ul><input placeholder="请正确填写邮箱地址" type="text" id="email" name="userDTO.email"
+                                        class="inptxt w200 inp-transform" autocomplete="off" title="请正确填写邮箱地址"
+                                        aria-label="请正确填写邮箱地址">
+                                </div>
+                                <div class="tips" style="color: #FF7F00;"></div>
+                            </li>
+                            <li>
+                                <div class="label"><span id="mobile_div_span" class="required">*</span>
+                                    手机号码：</div>
+                                <div class="r-txt">
+                                    <div class="pos-rel"><select name="userDTO.loginUserDTO.mobile_code" id="mobileCode"
+                                            class="w200" style="width:108px;" aria-label="共4项,按上下键进行选择,按回车键确认">
+                                            <option value="86">+86 中国</option>
+                                            <option value="852">+852 中国香港</option>
+                                            <option value="853">+853 中国澳门</option>
+                                            <option value="886">+886 中国台湾</option>
+                                        </select>
+                                        <input type="text" style="width:84px;" placeholder="手机号码"
+                                            name="userDTO.mobile_no" class="inptxt w200 color333" id="mobileNo"
+                                            maxlength="11" value="" title="手机号码" aria-label="手机号码">
+                                    </div>
+                                </div>
+                                <div class="tips" style="color: #FF7F00;">请正确填写手机号码，稍后将向该手机号码发送短信验证码</div>
+                            </li>
+                            <li id="youhui" class="studentType" style="display:none">
+                                <div class="label">&nbsp;</div>
+                                <div class="r-txt"><label class="error" id="preferenceFromStationNameVal"></label>
+                                </div>
+                                <div class="tips"></div>
+                            </li>
+                            <li>
+                                <div class="label" style="width:373px;">&nbsp;</div>
+                                <div class="r-txt"><input type="checkbox" class="check" id="checkAgree"
+                                        title="点击表示您已阅读并同意遵守《中国铁路客户服务中心网站服务条款》 《隐私权政策》"
+                                        aria-label="点击表示您已阅读并同意遵守《中国铁路客户服务中心网站服务条款》 《隐私权政策》,按空格键进行操作">
+                                    <span style="font-size: 14px;"><label for="checkAgree">我已阅读并同意遵守</label>
+                                    </span>
+                                    <a href="/otn/regist/rule" class="ft14" target="_blank"
+                                        shape="rect">《中国铁路客户服务中心网站服务条款》</a>
+                                    <a href="/otn/gonggao/privacyPolicy_web.html" class="ft14" target="_blank"
+                                        shape="rect">《隐私权政策》</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <button type="submit" id="registerButton" onclick="submitForm()">下一步</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 注册表单结束 -->
+        </div>
+        <!-- 内容区域结束 -->
+        <!-- 尾部开始 -->
+        <iframe src="./component/foot.html" width=100% height=300px marginwidth=0 marginheight=0 frameborder="0"
+            scrolling="no">
+            <a>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+        </iframe>
+        <!-- 尾部结束 -->
+    </div>
+    <!-- 内容板块结束 -->
+    <script src="js/res.js"></script>
+    <script>
+        window.onload = function () {
+            // 方法二：通过postMessage()方法
+            let send = document.getElementById('heard2').contentWindow;
+            send.postMessage("register",'*')
+        }
+    </script>
+</body>
+<style>
+
+</style>
+
+</html>
