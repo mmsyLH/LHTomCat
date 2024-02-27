@@ -62,11 +62,8 @@ public class LhServer implements Runnable {
                                 userServlet.doGet(lhRequest, lhResponse);
                                 break;
                         }
-
-
                         break;
                     }
-
                 } else {
                     // 二 走静态资源
                     // 1 判断是否是“/”访问首页 如果是则跳转到首页

@@ -16,6 +16,41 @@ function submitForm() {
     ) {
         return;
     }
+    //ajax注册
+    ajaxRes(userName,password);
+
+}
+
+// ajax注册
+function ajaxRes(username, password) {
+    console.log("username", username);
+    console.log("password", password);
+    $.ajax({
+        url: 'LhTomCat/UserServlet',
+        type: 'get',
+        data: {
+            action: "register",
+            username: username,
+            password: password
+        },
+        success: function (res) {
+            console.log("返回的res", res);
+            //转对象
+            var jsonObject = $.parseJSON(res)
+            if (jsonObject.code === 200) {
+                alert(jsonObject.msg+"<br>3秒后进行跳转")
+                setTimeout(function name(params) {
+                    location.href = "login.html";
+                },3000);
+                // delay(2000);
+            }
+        },
+        error: function (err) {
+            // 只有请求不正常（状态码不为200）才会执行
+            console.log('error', err);
+        },
+
+    });
 }
 function checkEmpty(value, message) {
     console.log(value)

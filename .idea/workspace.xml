@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="" />
+    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.27.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/LhServlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/constant/LHTomCatConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/DataUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/JDBCUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12306/webapps/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12306/webapps/js/res.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/res.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12306/webapps/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LHTomCat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LHTomCat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhReadThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +42,13 @@
       <list>
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="XML" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -40,6 +66,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2cif0w4k7VyIqhGrvYCuZ6Ul0nc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,31 +79,55 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "F:/cykjWorkSpacrce/LHTomCat/12306/webapps/js",
+    "last_opened_file_path": "F:/cykjWorkSpacrce/LHTomCat/lib",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "61e27529-1669-44cc-b77e-b07d236e7112",
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\cykjWorkSpacrce\LHTomCat\lib" />
+      <recent name="F:\cykjWorkSpacrce\LHTomCat\src" />
+      <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\12306\webapps\js" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat\common" />
-      <recent name="F:\cykjWorkSpacrce\LHTomCat\lib" />
-      <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat" />
-      <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat\servlet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\cykjWorkSpacrce\LHTomCat" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\12306\webapps" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\12306\webapps\images" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lhweb.asia.LHTomCat.utils" />
+      <recent name="lhweb.asia.LHTomCat.model" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="应用程序.LhTomcatV1">
+    <configuration name="JDBCUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.utils.JDBCUtils" />
+      <module name="LHTomCat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lhweb.asia.LHTomCat.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LhTomcatV1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.LhTomcatV1" />
       <module name="LHTomCat" />
@@ -88,9 +141,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.dao.UserDao" />
+      <module name="LHTomCat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lhweb.asia.LHTomCat.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.LhTomcatV1" />
+        <item itemvalue="应用程序.UserDao" />
+        <item itemvalue="应用程序.JDBCUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -109,20 +177,36 @@
       <workItem from="1708846773992" duration="264000" />
       <workItem from="1708847065632" duration="177000" />
       <workItem from="1708847283283" duration="8928000" />
-      <workItem from="1708908704194" duration="21321000" />
+      <workItem from="1708908704194" duration="31434000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

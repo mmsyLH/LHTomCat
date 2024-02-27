@@ -64,7 +64,6 @@ function checkInputs(input, errorElement, minLength) {
 }
 // ajax登录
 function ajaxLogin(username, password) {
-    console.log("ajax登录");
     console.log("username", username);
     console.log("password", password);
     $.ajax({
@@ -81,10 +80,12 @@ function ajaxLogin(username, password) {
             var jsonObject = $.parseJSON(res)
             if (jsonObject.code === 200) {
                 sessionStorage.setItem("userName", username);
-                
-                window.location.href = "index.html";
+                alert(jsonObject.msg+"<br>3秒后进行跳转")
+                setTimeout(function name(params) {
+                    location.href = "index.html";
+                },3000);
+                // delay(2000);
             }
-
         },
         error: function (err) {
             // 只有请求不正常（状态码不为200）才会执行
@@ -92,7 +93,13 @@ function ajaxLogin(username, password) {
         },
 
     });
+}
+//让线程睡眠
+function delay(duration) {
+    var start = Date.now();
+    while (Date.now() - start < duration) {
 
+    }
 }
 // 封装自定义弹窗
 window.alert = function (str) {

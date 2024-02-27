@@ -5,6 +5,9 @@ import lhweb.asia.LHTomCat.Thread.LhServer;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 罗汉服务器v1
@@ -14,6 +17,12 @@ import java.net.Socket;
  * @date 2024/02/25
  */
 public class LhTomcatV1 {
+    // 定义属性 保存要扫描的包的全路径
+    private List<String> classFullPathList = new ArrayList<>();
+    // 定义属性 servlet容器 存放反射后生成的bean对象  比如controller service  目前放入的都是单例的 多例一般是动态生成
+    public ConcurrentHashMap<String, Object> servletMap = new ConcurrentHashMap<>();
+    // 定义属性 要扫描的xml文件
+    private String coonfigLocation;
     public static void main(String[] args) throws IOException {
         // 1 创建ServletSocket 在8888端口监听
         ServerSocket serverSocket = new ServerSocket(8888);
