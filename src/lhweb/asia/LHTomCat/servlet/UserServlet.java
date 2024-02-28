@@ -2,8 +2,10 @@ package lhweb.asia.LHTomCat.servlet;
 
 import com.google.gson.Gson;
 import lhweb.asia.LHTomCat.common.Result;
+import lhweb.asia.LHTomCat.http.LhHttpServlet;
 import lhweb.asia.LHTomCat.http.LhRequest;
 import lhweb.asia.LHTomCat.http.LhResponse;
+import lhweb.asia.LHTomCat.model.TrainUser;
 import lhweb.asia.LHTomCat.model.User;
 import lhweb.asia.LHTomCat.service.UserService;
 
@@ -15,7 +17,8 @@ import lhweb.asia.LHTomCat.service.UserService;
  * @date 2024/02/26
  */
 public class UserServlet extends LhHttpServlet {
-    private UserService userService;
+    private UserService userService;//用户服务类
+    private Gson gson;//谷歌的解析json的工具类
 
     public UserServlet() {
         userService = new UserService();
@@ -36,11 +39,11 @@ public class UserServlet extends LhHttpServlet {
      * @param req  请求
      * @param resp 响应
      */
+
     private void register(LhRequest req, LhResponse resp) {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         boolean registerRes = userService.register(new User(username, password));
-        Gson gson;
         gson = new Gson();
         String presJson;
         if (registerRes) {
@@ -48,7 +51,6 @@ public class UserServlet extends LhHttpServlet {
         } else {
             presJson = gson.toJson(Result.error("注册失败"));
         }
-        // System.out.println("presJson："+presJson);
         resp.writeToJson(presJson);
     }
 
@@ -60,10 +62,15 @@ public class UserServlet extends LhHttpServlet {
      * @param resp 分别地
      */
     private void login(LhRequest req, LhResponse resp) {
+        //获取用户和密码
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        User login = userService.login(new User(username, password));
-        Gson gson;
+        //新建用户
+        TrainUser trainUser = new TrainUser();
+        trainUser.setUsername(username);
+        trainUser.setPassword(password);
+        //调用service的登录方法
+        TrainUser login = userService.login(trainUser);
         gson = new Gson();
         String presJson;
         if (login != null) {

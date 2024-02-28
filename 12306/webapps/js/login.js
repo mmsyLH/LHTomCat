@@ -74,17 +74,17 @@ function ajaxLogin(username, password) {
             username: username,
             password: password
         },
+        dataType:"JSON",
         success: function (res) {
             console.log("返回的res", res);
             //转对象
-            var jsonObject = $.parseJSON(res)
-            if (jsonObject.code === 200) {
+            // var jsonObject = $.parseJSON(res)
+            if (res.code === 200) {
                 sessionStorage.setItem("userName", username);
-                alert(jsonObject.msg+"<br>3秒后进行跳转")
+                alert(res.msg+"<br>3秒后进行跳转")
                 setTimeout(function name(params) {
-                    location.href = "index.html";
+                    // location.href = "index.html";
                 },3000);
-                // delay(2000);
             }
         },
         error: function (err) {

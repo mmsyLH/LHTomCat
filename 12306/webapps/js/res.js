@@ -7,12 +7,14 @@ function submitForm() {
     var mobileNo = document.getElementById("mobileNo").value; // 手机号码
 
     // 检查是否为空
-    if (checkEmpty(mobileNo, "手机号码不能为空") ||
+    if (
+        // checkEmpty(mobileNo, "手机号码不能为空") ||
         checkEmpty(userName, "用户名不能为空") ||
-        checkEmpty(password, "密码不能为空") ||
-        checkEmpty(confirmPassword, "确认密码不能为空") ||
-        checkEmpty(name, "姓名不能为空") ||
-        checkEmpty(cardCode, "证件号码不能为空")
+        checkEmpty(password, "密码不能为空")
+        // checkEmpty(password, "密码不能为空") ||
+        // checkEmpty(confirmPassword, "确认密码不能为空") ||
+        // checkEmpty(name, "姓名不能为空") ||
+        // checkEmpty(cardCode, "证件号码不能为空")
     ) {
         return;
     }
@@ -27,7 +29,7 @@ function ajaxRes(username, password) {
     console.log("password", password);
     $.ajax({
         url: 'LhTomCat/UserServlet',
-        type: 'get',
+        type: 'post',
         data: {
             action: "register",
             username: username,
@@ -40,13 +42,12 @@ function ajaxRes(username, password) {
             if (jsonObject.code === 200) {
                 alert(jsonObject.msg+"<br>3秒后进行跳转")
                 setTimeout(function name(params) {
-                    location.href = "login.html";
+                    // location.href = "login.html";
                 },3000);
                 // delay(2000);
             }
         },
         error: function (err) {
-            // 只有请求不正常（状态码不为200）才会执行
             console.log('error', err);
         },
 

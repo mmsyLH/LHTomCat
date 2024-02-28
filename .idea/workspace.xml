@@ -4,26 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.27.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/LhServlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/constant/LHTomCatConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/DataUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/JDBCUtils.java" afterDir="false" />
+    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="2.1完成数据库连接">
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/fastjson-1.2.75.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainAdmin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainCity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainCounty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainNumberInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainNumberType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainOrderComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainProvince.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainStation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainTown.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/model/TrainUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/test/test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/MysqlToBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12306/webapps/component/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/component/nav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12306/webapps/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12306/webapps/js/res.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/res.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12306/webapps/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LHTomCat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LHTomCat.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhReadThread.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/LhHttpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhHttpServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/LhServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,14 +52,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="XML" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.8/lib/src.zip!/java.base/java/lang/Thread.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.8/lib/src.zip!/java.base/sun/nio/ch/SocketDispatcher.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -76,6 +91,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -84,7 +100,7 @@
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "F:/cykjWorkSpacrce/LHTomCat/lib",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "项目",
+    "project.structure.last.edited": "SDK",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -141,6 +157,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MysqlToBeans" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.utils.MysqlToBeans" />
+      <module name="LHTomCat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lhweb.asia.LHTomCat.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.dao.UserDao" />
       <module name="LHTomCat" />
@@ -157,6 +186,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.LhTomcatV1" />
+        <item itemvalue="应用程序.MysqlToBeans" />
         <item itemvalue="应用程序.UserDao" />
         <item itemvalue="应用程序.JDBCUtils" />
       </list>
@@ -178,7 +208,18 @@
       <workItem from="1708847065632" duration="177000" />
       <workItem from="1708847283283" duration="8928000" />
       <workItem from="1708908704194" duration="31434000" />
+      <workItem from="1708996147972" duration="18630000" />
+      <workItem from="1709034888162" duration="2917000" />
+      <workItem from="1709081752527" duration="8871000" />
     </task>
+    <task id="LOCAL-00001" summary="2.1完成数据库连接">
+      <created>1708996536745</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708996536745</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,20 +236,26 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="完成数据库连接" />
+    <MESSAGE value="2.1完成数据库连接" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1完成数据库连接" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserService.java</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.HashMap" memberName="table" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -1,8 +1,9 @@
 package lhweb.asia.LHTomCat.Thread;
 
+import lhweb.asia.LHTomCat.LhTomcatV1;
 import lhweb.asia.LHTomCat.http.LhRequest;
 import lhweb.asia.LHTomCat.http.LhResponse;
-import lhweb.asia.LHTomCat.servlet.UserServlet;
+import lhweb.asia.LHTomCat.http.LhServlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,23 +46,15 @@ public class LhServer implements Runnable {
                     serverName = lhRequest.getUri().split("/")[1];
                 }
                 // 一 走servlet
-                if ("LhTomCat".equals(serverName) && lhRequest.getUri().split("/").length > 2) {// todo servlet映射 这里是写死的方法 之后写活 例如xml+反射机制
+                if (lhRequest.getUri().split("/").length > 2 && "LhTomCat".equals(serverName)) {// todo servlet映射 这里是写死的方法 之后写活 例如xml+反射机制
                     String serverLetName = lhRequest.getUri().split("/")[2];
-                    if ("UserServlet".equals(serverLetName)) {
-                        System.out.println("走UserServlet");
-                        UserServlet userServlet = new UserServlet();
-                        switch (lhRequest.getMethod().toUpperCase()) {
-                            case "GET":
-                                System.out.println("走get");
-                                userServlet.doGet(lhRequest, lhResponse);
-                                break;
-                            case "POST":
-                                userServlet.doPost(lhRequest, lhResponse);
-                                break;
-                            default:
-                                userServlet.doGet(lhRequest, lhResponse);
-                                break;
-                        }
+                    LhServlet lhServlet = (LhServlet) LhTomcatV1.servletMap.get(serverLetName);
+                    // if ("UserServlet".equals(serverLetName)) {
+                    if (lhServlet != null) {
+                        // System.out.println("走UserServlet");
+                        // LhServlet userServlet = new UserServlet();
+                        // userServlet.service(lhRequest,lhResponse);
+                        lhServlet.service(lhRequest, lhResponse);
                         break;
                     }
                 } else {

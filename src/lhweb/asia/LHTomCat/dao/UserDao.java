@@ -1,6 +1,7 @@
 package lhweb.asia.LHTomCat.dao;
 
 
+import lhweb.asia.LHTomCat.model.TrainUser;
 import lhweb.asia.LHTomCat.model.User;
 import lhweb.asia.LHTomCat.utils.JDBCUtils;
 
@@ -118,20 +119,27 @@ public class UserDao {
      * @param username 用户名
      * @return {@link User}
      */
-    public User getByUsername(String username) {
-        User user = null;
+    public TrainUser getByUsername(String username) {
+        TrainUser user = null;
         try {
             conn = JDBCUtils.getConnection();
-            String selectQuery = "SELECT * FROM user WHERE username = ?";
+            String selectQuery = "SELECT * FROM train_user WHERE username = ?";
             pstat = conn.prepareStatement(selectQuery);
             pstat.setString(1, username);
             res = pstat.executeQuery();
 
             // 处理查询结果
             if (res.next()) {
-                user = new User();
+                user = new TrainUser();
                 user.setUsername(res.getString("username"));
                 user.setPassword(res.getString("password"));
+                user.setUserid(res.getString("userid"));
+                user.setSex(res.getString("sex"));
+                user.setMoney(res.getInt("money"));
+                user.setId(res.getString("id"));
+                user.setPhone(res.getString("phone"));
+                user.setPhoto(res.getString("photo"));
+                user.setCreatetime(res.getDate("createtime"));
             }
 
         } catch (SQLException e) {
@@ -145,7 +153,6 @@ public class UserDao {
                 throw new RuntimeException(e);
             }
         }
-
         return user;
     }
 

@@ -23,9 +23,9 @@ import java.util.HashMap;
  */
 public class LhRequest {
     private String method;// 访问方法
-    private String uri;
+    private String uri;// url中的一部分
     private String url;// 访问链接 全称
-    private String body;//请求体
+    private String body;// 请求体
     private String protocol;// 协议版本
     private InputStream inputStream = null;
     // 参数列表 key value 所以用hashMap
@@ -41,23 +41,19 @@ public class LhRequest {
     /**
      * 初始化
      */
-    private void init() {
+    private void init() { // 为了读取方便 inputStream-> BufferedReader  InputStreamReader： 转换流
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         try {
-            // 为了读取方便 inputStream-> BufferedReader  InputStreamReader： 转换流
-            // 读取第一行
             /*原始请求 http://localhost:8888/hhh?name=1&password=2
-            * GET /hhh?name=1&password=2 HTTP/1.1
-                Host: localhost:8888
-            * */
-            String requestLine = bufferedReader.readLine();// GET /lhServletV3?name=1&password=2 HTTP/1.1
-            System.err.println("requestLine:"+requestLine);
+             * GET /hhh?name=1&password=2 HTTP/1.1  Host: localhost:8888
+             * */
+            String requestLine = bufferedReader.readLine();// 读取第一行 GET /lhServletV3?name=1&password=2 HTTP/1.1
+            System.err.println("requestLine:" + requestLine);
             // 按照空格分成一个数组
             String[] requestLineArr = null;
             // 只有requestLine不为空才能往下进行
             if (requestLine != null) {
                 requestLineArr = requestLine.split(" ");
-
                 if (requestLineArr.length < 3) {
                     throw new IOException("请求格式错误~"); // 请求头一般是    请求方法 请求路径 请求协议
                 }
@@ -75,7 +71,7 @@ public class LhRequest {
                 getParameterByHeard(bufferedReader);
 
                 // 解析请求体
-                getBody(bufferedReader);
+                getBodys(bufferedReader);
 
 
             }
@@ -88,23 +84,42 @@ public class LhRequest {
      * 解析请求体
      *
      * @param bufferedReader 缓冲读者
-     * @throws IOException ioexception
      */
-    private void getBody(BufferedReader bufferedReader) throws IOException {
-        String requestLine;
+    private void getBodys(BufferedReader bufferedReader) {
         String contentType = getHeardParameter("Content-Type");
         String contentLength = getHeardParameter("Content-Length");
-        //获取Body的长度
-        int length=0;
-        if (contentLength.length()==0||"".equals(contentType)){//
-            length=0;
-        }else {
-            length=Integer.parseInt(contentLength);
-        }
-        //接受请求体
-        if (length>0){//暂时写的是一行 todo 改成接受多行！！！
-            requestLine= bufferedReader.readLine();//如果是文件则不能这样接受 要改成字节流去接受
-            body=requestLine;
+        // 获取Body的长度
+        int length=!(contentLength.length() == 0) && !"".equals(contentType)?Integer.parseInt(contentLength):0;
+        // 接收请求体
+        if (length > 0) {
+            char[] buffer = new char[length];
+            int totalRead = 0; // 记录已经读取的字符数
+            // io的循环读取
+            while (totalRead < length) {
+                try {
+                    int read = bufferedReader.read(buffer, totalRead, length - totalRead); // 从总字符数位置开始读取
+                    if (read < 0) {
+                        break;
+                    }
+                    totalRead += read; // 更新已读取的字符数
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            // 将char数组转换为字符串
+            body = new String(buffer);
+            System.out.println("body: " + body);
+            //解析请求体
+
+            String[] parametersPair = body.split("&");//body: action=register&username=12312&password=3124123123
+            for (String parameterPair : parametersPair) {
+                // parameterVal["action","register"]
+                String[] parameterVal = parameterPair.split("=");
+                if (parameterVal.length == 2) {// 说明的的确确有参数值
+                    // 放入到parametersMap里去
+                    parametersMap.put(parameterVal[0], parameterVal[1]);
+                }
+            }
         }
     }
 
@@ -119,7 +134,7 @@ public class LhRequest {
             String[] splitArr;
             while (true) {
                 requestLine = bufferedReader.readLine();
-                if (requestLine == null || "".equals(requestLine)) {//接受到回车换行就退出
+                if (requestLine == null || "".equals(requestLine)) {// 接受到回车换行就退出
                     break;
                 } else {
                     splitArr = requestLine.split(": ");

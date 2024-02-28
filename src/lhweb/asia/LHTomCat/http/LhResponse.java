@@ -78,7 +78,7 @@ public class LhResponse {
     public void write(int code, String data) {
         if (code == 404) {
             String respHeader = "HTTP/1.1 404 Not Found";
-            headers.put("Content_Type", "text/html;charset=utf-8");
+            headers.put("Content-Type", "text/html;charset=utf-8");
             byte[] buffer = data.getBytes();
             headers.put("Content-Length", buffer.length + "");
         }

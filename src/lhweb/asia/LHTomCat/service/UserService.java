@@ -2,6 +2,7 @@ package lhweb.asia.LHTomCat.service;
 
 
 import lhweb.asia.LHTomCat.dao.UserDao;
+import lhweb.asia.LHTomCat.model.TrainUser;
 import lhweb.asia.LHTomCat.model.User;
 import lhweb.asia.LHTomCat.utils.DataUtils;
 
@@ -26,7 +27,7 @@ public class UserService {
      * @return boolean
      */
     public boolean isExists(String username) {
-        User user = userDao.getByUsername(username);
+        TrainUser user = userDao.getByUsername(username);
         return user != null;
     }
 
@@ -68,12 +69,11 @@ public class UserService {
      * @param loginUser 登录用户
      * @return {@link User}
      */
-    public User login(User loginUser) {
+    public TrainUser login(TrainUser loginUser) {
         String username = loginUser.getUsername();
         String password = loginUser.getPassword();
-        User user = userDao.getByUsername(username);
+        TrainUser user = userDao.getByUsername(username);
         if (user == null) {
-
             return null;
         }
         System.out.println(DataUtils.encryptPassword(password));
