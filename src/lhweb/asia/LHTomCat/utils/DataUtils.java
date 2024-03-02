@@ -3,6 +3,8 @@ package lhweb.asia.LHTomCat.utils;
 
 import lhweb.asia.LHTomCat.constant.LHTomCatConstant;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
@@ -49,6 +51,15 @@ public class DataUtils {
         return inputEncryptedPassword.equals(encryptedPassword);
     }
 
+    /**
+     * 解读url编码转中文
+     *
+     * @param encodedString 编码字符串
+     * @return {@link String}
+     */
+    public static String decodeChinese(String encodedString) {
+        return URLDecoder.decode(encodedString, StandardCharsets.UTF_8);
+    }
     // 生成随机验证码
     public static String generateRandomCode() {
         Random random = new Random();
@@ -58,4 +69,5 @@ public class DataUtils {
         }
         return sb.toString();
     }
+
 }

@@ -66,11 +66,7 @@ public class UserDao {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            try {
-                JDBCUtils.close(conn, pstat, res);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            JDBCUtils.close(conn, pstat, res);
         }
 
         return index;
@@ -103,11 +99,7 @@ public class UserDao {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            try {
-                JDBCUtils.close(conn, pstat, res);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            JDBCUtils.close(conn, pstat, res);
         }
 
         return players;
@@ -147,11 +139,7 @@ public class UserDao {
             e.printStackTrace();
         } finally {
             // 关闭资源
-            try {
-                JDBCUtils.close(conn, pstat, res);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            JDBCUtils.close(conn, pstat, res);
         }
         return user;
     }

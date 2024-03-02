@@ -1,5 +1,57 @@
 @import url(./base.css);
 /* ------------------------------------------------------------------------------------ */
+.main{
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+#trainTable th,#stationTable th{
+    min-width: 100px;
+}
+#trainTable td,#stationTable td {
+    text-align: center;
+}
+input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.select{
+    margin-top: 10px;
+}
+/* 分页 */
+.pagination {
+    margin: 20px 0  ;
+    text-align: center;
+}
 
+.pagination ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination ul li a {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.pagination ul li a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination ul li a:hover {
+    background-color: #f0f0f0;
+}
 

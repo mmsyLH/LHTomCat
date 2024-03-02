@@ -1,6 +1,6 @@
 package lhweb.asia.LHTomCat.Thread;
 
-import lhweb.asia.LHTomCat.LhTomcatV1;
+import lhweb.asia.LHTomCat.LhTomcatV2;
 import lhweb.asia.LHTomCat.http.LhRequest;
 import lhweb.asia.LHTomCat.http.LhResponse;
 import lhweb.asia.LHTomCat.http.LhServlet;
@@ -39,21 +39,25 @@ public class LhServer implements Runnable {
                 // 业务逻辑~  判断是走静态资源还是访问serverLet
                 // 判断走serverLet uri:/LhTomCat/UserServlet  url:/LhTomCat/UserServlet?username=admina&password=123456
                 String serverName = "";
+                String serverLetName = "";
                 System.out.println("uri:" + lhRequest.getUri());
                 System.out.println("url:" + lhRequest.getUrl());
+                //切割servlet名称
                 if (null != lhRequest.getUri() && !"/".equals(lhRequest.getUri())) {
-                    System.out.println("lhRequest.getUri()" + lhRequest.getUri());
-                    serverName = lhRequest.getUri().split("/")[1];
+                    System.out.println("lhRequest.getUri()" + lhRequest.getUri());// /views/LhTomCat/TrainServlet
+                    int indexOf = lhRequest.getUri().lastIndexOf("LhTomCat");//如果k的值不存在，则返回-1 。
+                    if (indexOf>=0){
+                        //获取服务器名称
+                        serverName = "LhTomCat";
+                        String substringUrl = lhRequest.getUri().substring(indexOf);
+                        //获取setvlet名称
+                        serverLetName = substringUrl.split("/")[1];
+                    }
                 }
                 // 一 走servlet
                 if (lhRequest.getUri().split("/").length > 2 && "LhTomCat".equals(serverName)) {// todo servlet映射 这里是写死的方法 之后写活 例如xml+反射机制
-                    String serverLetName = lhRequest.getUri().split("/")[2];
-                    LhServlet lhServlet = (LhServlet) LhTomcatV1.servletMap.get(serverLetName);
-                    // if ("UserServlet".equals(serverLetName)) {
+                    LhServlet lhServlet = (LhServlet) LhTomcatV2.servletMap.get(serverLetName);
                     if (lhServlet != null) {
-                        // System.out.println("走UserServlet");
-                        // LhServlet userServlet = new UserServlet();
-                        // userServlet.service(lhRequest,lhResponse);
                         lhServlet.service(lhRequest, lhResponse);
                         break;
                     }

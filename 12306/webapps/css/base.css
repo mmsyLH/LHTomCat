@@ -71,3 +71,26 @@ p {
                 baseline: 项目的第一行文字的基线对齐。
              */
 }
+
+.baseButton {
+    min-width: 80px;
+    height: 44px;
+    line-height: 34px;
+    padding: 4px 10px;
+    border: 1px solid #dedede;
+    outline: none;
+    background: linear-gradient(45deg, rgb(136, 190, 252), rgb(114, 159, 252));
+    box-shadow: -2px 4px 6px rgb(114, 159, 252);
+    border-radius: 10%;
+    cursor: pointer;
+    color: white;
+    font-family: miaowu;
+}
+
+.baseButton:active {
+    /* 改变背景色 */
+    background: linear-gradient(45deg, rgb(106, 166, 232), rgb(94, 139, 232));
+    /* 缩小尺寸 */
+    transform: scale(0.95);
+
+}

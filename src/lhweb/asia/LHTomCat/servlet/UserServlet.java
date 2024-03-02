@@ -34,25 +34,33 @@ public class UserServlet extends LhHttpServlet {
     }
 
     /**
-     * 注册
+     * 注册用户
      *
-     * @param req  请求
-     * @param resp 响应
+     * @param req  请求对象，包含注册用户的用户名和密码
+     * @param resp 响应对象，用于返回注册结果
      */
-
     private void register(LhRequest req, LhResponse resp) {
+        // 获取请求参数中的用户名和密码
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+
+        // 调用用户服务注册新用户
         boolean registerRes = userService.register(new User(username, password));
         gson = new Gson();
+
+        // 将注册结果转换为 JSON 字符串
         String presJson;
         if (registerRes) {
+            // 注册成功，返回成功信息
             presJson = gson.toJson(Result.success("注册成功"));
         } else {
+            // 注册失败，返回错误信息
             presJson = gson.toJson(Result.error("注册失败"));
         }
+        // 将 JSON 字符串写入响应对象中
         resp.writeToJson(presJson);
     }
+
 
     /**
      * 登录
@@ -78,7 +86,6 @@ public class UserServlet extends LhHttpServlet {
         } else {
             presJson = gson.toJson(Result.error("登录失败"));
         }
-        // System.out.println("presJson："+presJson);
         resp.writeToJson(presJson);
     }
 

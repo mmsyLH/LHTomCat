@@ -64,4 +64,12 @@ public class TrainStation implements Serializable {
     return this.stationinfo;
     }
 
+    @Override
+    public String toString() {
+        return "TrainStation{" +
+                "stationid='" + stationid + '\'' +
+                ", stationpy='" + stationpy + '\'' +
+                ", stationinfo='" + stationinfo + '\'' +
+                '}';
+    }
 }

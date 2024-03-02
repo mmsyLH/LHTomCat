@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
@@ -61,6 +62,7 @@ public class LhRequest {
                 method = requestLineArr[0];
                 // 得到url
                 url = requestLineArr[1];
+
                 // 得到protocol
                 protocol = requestLineArr[2];
 
@@ -179,7 +181,10 @@ public class LhRequest {
                 String[] parameterVal = parameterPair.split("=");
                 if (parameterVal.length == 2) {// 说明的的确确有参数值
                     // 放入到parametersMap里去
-                    parametersMap.put(parameterVal[0], parameterVal[1]);
+                    //单独拿参数进行解码
+                    String key = parameterVal[0];
+                    String value = parameterVal[1];
+                    parametersMap.put(URLDecoder.decode(key, StandardCharsets.UTF_8), URLDecoder.decode(value, StandardCharsets.UTF_8));
                 }
             }
         }
