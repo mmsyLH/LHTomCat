@@ -60,9 +60,11 @@ public class TrainServlet extends LhHttpServlet {
         // 调用trainService去模糊查询车站
         Page<TrainStation> page = trainService.pageByName(Integer.parseInt(pageNo), Integer.parseInt(pageSize), pageName);
 
-        // 将查询结果转换为JSON字符串
-        String presJson;
-        presJson = gson.toJson(Result.success(page, "分页查询成功"));
+        //1 fastJson 将查询结果转换为JSON字符串
+        // String presJson=JSON.toJSONString(Result.success(page, "分页查询成功"));
+
+        //2 Gson
+        String presJson = gson.toJson(Result.success(page, "分页查询成功"));
         // 将JSON字符串写入响应对象中
         resp.writeToJson(presJson);
     }

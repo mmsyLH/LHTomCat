@@ -31,8 +31,9 @@ public class TrainDao {
         System.out.println("num: " + num);
         List<TrainStation> pageItemsByName = trainDao.getPageItemsByName(0, 3, "");
         System.out.println(pageItemsByName);
-    }
 
+        //更新
+    }
     /**
      * 根据传入的初始页和需要展示的条数获取当前页要显示的数据
      *
@@ -74,7 +75,7 @@ public class TrainDao {
     /**
      * 按名称获取行总数
      *
-     * @return int
+     * @return int 总行数
      */
     public int getTotalRowsByName(String name) {
         int totalRows = 0;
@@ -96,6 +97,31 @@ public class TrainDao {
         return totalRows;
     }
 
+    /**
+     * 更新车站信息
+     *
+     * @param trainStation 火车站
+     * @return int 0表示没有执行更新 -1表示更新过程中出错
+     */
+    public int updateStation(TrainStation trainStation) {
+        String selectQuery = "UPDATE train_station set `stationid` =?,`stationpy`=?,`stationinfo`=? where stationid=?";
+        int resNum = 0;
+        try {
+            conn = JDBCUtils.getConnection();
+            pstat = conn.prepareStatement(selectQuery);
+            pstat.setString(1, trainStation.getStationid());
+            pstat.setString(2, trainStation.getStationpy());
+            pstat.setString(3,  trainStation.getStationinfo());
+            pstat.setString(4,  trainStation.getStationid());
+            resNum = pstat.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JDBCUtils.close(conn, pstat, res);
+        }
+        return resNum;
+    }
 
     /**
      * 所有车次按站号排列

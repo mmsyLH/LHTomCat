@@ -114,3 +114,20 @@
         color: #666;
         border-top: 1px solid #dedede;
     }
+    .modal-login {
+        width: 380px;
+        height: 295px;
+        padding: 0 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modal-login .modal-login-tit {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        background-color: #F8F8F8;
+        justify-content: space-between;
+    }

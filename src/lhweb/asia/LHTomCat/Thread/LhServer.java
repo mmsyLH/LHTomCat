@@ -1,9 +1,9 @@
 package lhweb.asia.LHTomCat.Thread;
 
-import lhweb.asia.LHTomCat.LhTomcatV2;
 import lhweb.asia.LHTomCat.http.LhRequest;
 import lhweb.asia.LHTomCat.http.LhResponse;
 import lhweb.asia.LHTomCat.http.LhServlet;
+import lhweb.asia.LHTomCat.utils.ServletFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class LhServer implements Runnable {
                 }
                 // 一 走servlet
                 if (lhRequest.getUri().split("/").length > 2 && "LhTomCat".equals(serverName)) {// todo servlet映射 这里是写死的方法 之后写活 例如xml+反射机制
-                    LhServlet lhServlet = (LhServlet) LhTomcatV2.servletMap.get(serverLetName);
+                    LhServlet lhServlet = ServletFactory.getInstance().getServlet(serverLetName);
                     if (lhServlet != null) {
                         lhServlet.service(lhRequest, lhResponse);
                         break;
@@ -78,7 +78,6 @@ public class LhServer implements Runnable {
                     } else {
                         file = new File("12306/webapps/404.html");
                         lhResponse.write(file);
-                        // lhResponse.write(404,"<img src='images/404.png'><br><h1>Not Found</h1>");
                         break;
                     }
                 }

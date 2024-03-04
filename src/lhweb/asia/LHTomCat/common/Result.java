@@ -18,6 +18,9 @@ public class Result<T> implements Serializable {
     private Map<String, String> msgMap;
     private T data;
 
+    public Result() {
+    }
+
     public static <T> Result<T> success() {
         Result<T> result = new Result<>();
         result.code = 200;

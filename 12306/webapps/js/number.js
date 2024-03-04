@@ -125,7 +125,7 @@ function displayStationList(data) {
                        "<td>" + station.stationinfo + "</td>";
         stationList.appendChild(tr);
     }
-}
+}   
 //上一页
 function last(){
     pageNo=pageNo-1;
