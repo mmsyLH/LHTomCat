@@ -1,0 +1,171 @@
+@import url(./base.css);
+/* ------------------------------------------------------------------------------------ */
+a {
+    color: #333;
+}
+
+/* 轮播图区域 */
+.banner {
+    margin: 0px auto 10px auto; /* 添加此行，将左右外边距设置为auto，实现水平居中 */
+    padding: 0;
+    /* width: 100%; */
+    width: 1650px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    /* width: 100%; */
+    width: 1650px;
+    height: 450px;
+    display: flex;
+    /* 表示.carousel的属性变化在规定时间内完成 */
+    transition: 0.5s;
+}
+
+.banner .carousel img {
+    /* width: 1903px; */
+    /* width: 100vw; */
+    width: 1650px;
+    height: 450px;
+}
+
+.indicator {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    /* outline: 1px solid #fff; */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.indicator span {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin: 0 6px;
+}
+
+.indicator span.active {
+    background: white;
+    border-color: white;
+}
+
+.main {
+    width: 100%;
+    height: 1600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.main .wrapper {
+    width: 100%;
+    padding: 0 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 铁路旅游区 */
+.main .section {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .section .section-hd {
+    display: flex;
+}
+
+.main .section .travel-train ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main .section .travel-train li {
+    width: 290px;
+    height: 244px;
+    margin: 10px 10px 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .section .travel-train li a {
+    height: 244px;
+    display: block;
+    border: 1px solid #dedede;
+    overflow: hidden;
+}
+
+.main .section .travel-train .travel-info {
+    padding: 10px;
+}
+
+.main .section .travel-train .travel-name {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main .section .travel-train .txt-price {
+    font-size: 20px;
+    color: #ff8000;
+}
+
+.main .section .travel-train img {
+    width: 288px;
+    height: 166px;
+}
+
+/* 最新发布区 */
+.fabu {
+    width: 100%;
+    height: 300px;
+    margin-top: 40px;
+    border: 1px solid #dedede;
+}
+
+.fabu_top {
+    width: 1190px;
+    height: 40px;
+    margin: 0 auto;
+
+}
+
+.fabu_top li {
+    width: 390px;
+    height: 32px;
+    float: left;
+    font-size: 16px;
+    background-color: #efeff4;
+}
+
+.fabu_top li:nth-child(1) {
+    margin-right: 10px;
+    color: hsl(0, 0%, 100%);
+    background-color: #3b99fc;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.fabu_centcon {
+    width: 1188px;
+    height: 260px;
+    margin: auto;
+    padding: 20px;
+}
+
+.fabu_centcon li {
+    width: 544px;
+    height: 36px;
+    font-size: 14px;
+    float: left;
+    margin-top: -1px;
+}
+
+

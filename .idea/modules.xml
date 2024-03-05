@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LHTomCat.iml" filepath="$PROJECT_DIR$/LHTomCat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NIOServer/NIOServer.iml" filepath="$PROJECT_DIR$/NIOServer/NIOServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NIOServer2/NIOServer2.iml" filepath="$PROJECT_DIR$/NIOServer2/NIOServer2.iml" />
     </modules>
   </component>
 </project>

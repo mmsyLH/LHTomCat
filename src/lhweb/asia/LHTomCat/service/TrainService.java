@@ -37,7 +37,7 @@ public class TrainService {
     public Page<TrainStation> pageByName(int pageNo,int pageSize,String name){
         //创建一个page对象 然后填充属性
         //第一个参数
-        Page page = new Page();
+        Page<TrainStation> page = new Page<>();
         page.setPageNo(pageNo);
         //第二个参数
         page.setPageSize(pageSize);
@@ -82,5 +82,34 @@ public class TrainService {
      */
     public List<TrainStation> searchStationLikeName(String stationName) {
         return trainDao.searchStationLikeName(stationName);
+    }
+
+    /**
+     * 删除
+     *
+     * @param stationid stationid
+     */
+    public boolean delete(String stationid) {
+        return trainDao.deleteStation(stationid)!=-1;
+    }
+
+    /**
+     * 更新
+     *
+     * @param trainStation 火车站
+     * @return boolean
+     */
+    public boolean update(TrainStation trainStation) {
+        return trainDao.updateStation(trainStation)!=-1;
+    }
+
+    /**
+     * 添加车站
+     *
+     * @param trainStation 火车站
+     * @return boolean
+     */
+    public boolean add(TrainStation trainStation) {
+        return trainDao.save(trainStation)!=-1;
     }
 }

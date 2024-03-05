@@ -32,7 +32,6 @@ public class TrainDao {
         List<TrainStation> pageItemsByName = trainDao.getPageItemsByName(0, 3, "");
         System.out.println(pageItemsByName);
 
-        //更新
     }
     /**
      * 根据传入的初始页和需要展示的条数获取当前页要显示的数据
@@ -57,8 +56,8 @@ public class TrainDao {
             while (res.next()) {
                 trainStation = new TrainStation();
                 trainStation.setStationid(res.getString("stationid"));
-                trainStation.setStationinfo(res.getString("stationpy"));
-                trainStation.setStationpy(res.getString("stationinfo"));
+                trainStation.setStationpy(res.getString("stationpy"));
+                trainStation.setStationinfo(res.getString("stationinfo"));
                 trainStations.add(trainStation);
             }
 
@@ -68,7 +67,6 @@ public class TrainDao {
             // 关闭资源
             JDBCUtils.close(conn, pstat, res);
         }
-
         return trainStations;
     }
 
@@ -96,7 +94,34 @@ public class TrainDao {
         }
         return totalRows;
     }
+    /**
+     * 添加火车站信息
+     *
+     * @param station 火车站对象
+     * @return 添加的火车站信息在数据库中的索引（ID）
+     */
+    public int save(TrainStation station) {
+        int index = -1;
+        try {
+            conn = JDBCUtils.getConnection();
+            String insertQuery = "INSERT INTO train_station (stationid, stationpy,stationinfo) VALUES (?, ?,?)";
+            pstat = conn.prepareStatement(insertQuery, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstat.setString(1, station.getStationid());
+            pstat.setString(2, station.getStationpy());
+            pstat.setString(3, station.getStationinfo());
 
+            index = pstat.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO: 处理异常
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JDBCUtils.close(conn, pstat, res);
+        }
+
+        return index;
+    }
     /**
      * 更新车站信息
      *
@@ -105,7 +130,7 @@ public class TrainDao {
      */
     public int updateStation(TrainStation trainStation) {
         String selectQuery = "UPDATE train_station set `stationid` =?,`stationpy`=?,`stationinfo`=? where stationid=?";
-        int resNum = 0;
+        int resNum = -1;
         try {
             conn = JDBCUtils.getConnection();
             pstat = conn.prepareStatement(selectQuery);
@@ -114,6 +139,8 @@ public class TrainDao {
             pstat.setString(3,  trainStation.getStationinfo());
             pstat.setString(4,  trainStation.getStationid());
             resNum = pstat.executeUpdate();
+            // 提交事务
+            conn.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -202,5 +229,28 @@ public class TrainDao {
         }
 
         return trainStations;
+    }
+
+    /**
+     * 根据stationid删除车站
+     *
+     * @param stationid stationid
+     * @return int
+     */
+    public int deleteStation(String stationid) {
+        String selectQuery = "delete from train_station where stationid=?";
+        int resNum = -1;
+        try {
+            conn = JDBCUtils.getConnection();
+            pstat = conn.prepareStatement(selectQuery);
+            pstat.setString(1, stationid);
+            resNum = pstat.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 关闭资源
+            JDBCUtils.close(conn, pstat, res);
+        }
+        return resNum;
     }
 }

@@ -26,7 +26,7 @@ public class UserDao {
     private ResultSet res = null;
 
     public static void main(String[] args) {
-        User user = new User("admin","123456");
+        User user = new User("admin", "123456");
         UserDao userDao = new UserDao();
 
         // int add = userDao.add(user);
@@ -36,6 +36,7 @@ public class UserDao {
         List<User> allUser = userDao.findAllUser();
         System.out.println(allUser);
     }
+
     /**
      * 添加
      *

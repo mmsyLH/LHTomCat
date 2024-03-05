@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>中国铁路12306网站</title>
+    <!-- 样式标签 -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <!-- 内容板块开始 -->
+    <div class="container">
+        <!-- 头部开始 -->
+        <div class="header">
+            <div class="wrapper">
+                <!-- 头部内容 -->
+                <a href="https://www.12306.cn/index/index.html">
+                    <img src="https://www.12306.cn/index/images/logo.png" alt="中国铁路12306" title="中国铁路12306">
+                </a>
+                <p class="header-welcome">欢迎登录12306</p>
+            </div>
+        </div>
+        <!-- 头部结束 -->
+        <!-- 内容区域开始 -->
+        <div class="main">
+            <div class="login">
+                <ul class="login-heard">
+                    <a class="active" onclick="switchTab('login')" id="loginTab">登录</a> <span>|</span>
+                    <a onclick="switchTab('register')" id="registerTab">注册</a>
+                </ul>
+
+                <!-- 如果按钮选择的是登录就展示这个里面的内容 -->
+                <div class="login-main" id="loginForm">
+                    <div>
+                        <input type="text" id="Username" placeholder="用户名/邮箱/手机号" value="admin" oninput=""
+                            style="height: 44px; line-height: 44px;margin-top: 10px;">
+                    </div>
+                    <div>
+                        <input type="password" id="Password" placeholder="密码" value="123456"
+                            style="height: 44px; line-height: 44px;margin-top: 10px;">
+                    </div>
+                    <div>
+                        <button type="submit" style="margin-top: 10px;" onclick="submitForm('login')">登录</button>
+                    </div>
+                    <div
+                        style="display: flex;justify-content: space-between;align-items: center;padding: 15px  30px 0 30px;">
+                        <a href="register.html">注册12306账号</a>
+                        <span>|</span>
+                        <a>忘记密码?</a>
+                    </div>
+                </div>
+
+                <!-- 如果按钮选择的是注册就展示这个里面的内容 -->
+                <div class="login-main" id="registerForm" style="display:none;">
+                    <div>
+                        <input type="text" name="email" id="email" placeholder="请输入邮箱">
+                    </div>
+                    <div>
+                        <input type="text" name="Username" id="Username" placeholder="请输入用户名">
+                    </div>
+                    <div>
+                        <input type="password" name="Password" id="Password" placeholder="请输入密码">
+                    </div>
+                    <div>
+                        <input type="password" name="Passwordrepeat" id="Passwordrepeat" placeholder="请确认密码">
+                    </div>
+                    <button type="submit" onclick="submitForm('register')">注册</button>
+                </div>
+
+                <!-- 登录提示框 -->
+                <div class="login-error" id="loginUname-error" tabindex="-1" style="display: none;">
+                    <i class="icon icon-plaint-fill"></i><span>请输入用户名！</span>
+                </div>
+                <div class="login-error" id="loginPwd-error" tabindex="-1" style="display: none;">
+                    <i class="icon icon-plaint-fill"></i><span>请输入密码！</span>
+                </div>
+                <div class="login-ft">
+                    <p>
+                        铁路12306每日5:00至次日1:00（周二为5:00至23:30）提供购票、改签、变更到站业务办理， 全天均可办理退票等其他服务。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 验证码弹窗 -->
+        <div class="modal-login" id="modal" tabindex="-1"
+            style="position: fixed; top: 35%; left: 50%; margin-top: -126px; margin-left: -190px; display: none;">
+            <div class="modal-login-tit">
+                <h2>选择验证方式</h2>
+                <a href="javascript:;" class="close" id="short_message_close" title="关闭" >假装是关闭图标<i
+                        class="icon icon-close"></i></a>
+            </div>
+            <!-- 验证选择 -->
+            <div class="login-box" cs>
+                <ul class="login-hd" id="verification">
+                    <li class="active" type="0" style="width: 320px; float: none; margin-right: 0px;">
+                        <a href="javascript:;" style="margin-left: 150px;">短信验证</a>
+                    </li>
+                </ul>
+                <div class="login-code-item" id="short_message">
+                    <div style="width: 320px; padding: 20px 0; margin: 0 auto">
+                        <div>
+                            <label for="id_card" style="position: absolute; top: -6000px">请输入登录账号绑定的证件号后4位</label>
+                            <input type="text" class="input" style="width: 320px; height: 44px; line-height: 34px;"
+                                id="id_card" placeholder="请输入登录账号绑定的证件号后4位" maxlength="4">
+                        </div>
+                        <div style="margin-top: 20px">
+                            <a href="javascript:;" class="btn btn-disabled" style="width: 100px"
+                                id="verification_code">获取验证码</a>
+                            <label for="verification_code" style="position: absolute; top: -6000px">请输入验证码</label>
+                            <input type="text" class="input"
+                                style="float: left; width: 200px; margin-right: 20px; height: 44px; line-height: 34px;"
+                                placeholder="输入验证码" id="code" maxlength="6">
+                        </div>
+                        <div style="margin-top: 5px; color: red; display: none" id="message" role="alertdialog"
+                            tabindex="-1" aria-label="错误提示框">
+                            <p></p>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <a href="javascript:;" class="btn btn-primary" style="width: 320px" id="sureClick">确定</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-code-item" id="slide" style="display: none;">
+                    <div class="up-box-bd">
+                        <div class="box-psw-code">
+                            <!-- 文本验证码 -->
+                            <div id="J-slide-passcode" class="nc-container" style="left: -30px; position: relative">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 验证码弹窗结束 -->
+
+        
+        <!-- 尾部开始 -->
+        <iframe src="./component/foot.html" width=100% height=300px marginwidth=0 marginheight=0 frameborder="0"
+            scrolling="no">
+            <a>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+        </iframe>
+        <!-- 尾部结束 -->
+    </div>
+    <!-- 内容板块结束 -->
+    <script src="./js/login.js"></script>
+    <script src="./js/jquery-3.6.0.js"></script>
+</body>
+
+
+</html>

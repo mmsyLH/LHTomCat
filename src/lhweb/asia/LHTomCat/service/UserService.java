@@ -27,8 +27,7 @@ public class UserService {
      * @return boolean
      */
     public boolean isExists(String username) {
-        TrainUser user = userDao.getByUsername(username);
-        return user != null;
+        return  userDao.getByUsername(username) != null;
     }
 
     /**

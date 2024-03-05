@@ -38,11 +38,90 @@ public class TrainServlet extends LhHttpServlet {
             searchStationLikeName(req, resp);
         } else if ("pageByName".equals(action)) {// 检查请求的操作是分页查询车站
             pageByName(req, resp);
+        } else if ("delete".equals(action)) {
+            delete(req, resp);
+        } else if ("update".equals(action)) {
+            update(req, resp);
+        } else if ("add".equals(action)) {
+            add(req, resp);
         } else {
             // 返回错误信息，说明该类没有请求的操作方法
             resp.writeToJson(gson.toJson(Result.error(getClass().getSimpleName() + "没有 " + req.getParameter("action") + " 方法")));
         }
     }
+
+    /**
+     * 添加车站
+     *
+     * @param req  要求事情
+     * @param resp 分别地
+     */
+    private void add(LhRequest req, LhResponse resp) {
+        String stationid = req.getParameter("stationid");
+        String stationpy = req.getParameter("stationpy");
+        String stationinfo = req.getParameter("stationinfo");
+
+        // 检查stationid是否为null或空
+        if (stationid == null || stationpy == null || stationinfo == null || stationpy.isEmpty() || stationinfo.isEmpty() || stationid.isEmpty()) {
+            resp.writeToJson(gson.toJson(Result.error("添加失败，上传的属性至少有一个为空")));
+            return;
+        }
+        TrainStation trainStation = new TrainStation();
+        trainStation.setStationinfo(DataUtils.decodeChinese(stationinfo));
+        trainStation.setStationid(DataUtils.decodeChinese(stationid));
+        trainStation.setStationpy(DataUtils.decodeChinese(stationpy));
+        boolean res = trainService.add(trainStation);
+        String jsonResponse = res ? gson.toJson(Result.success("添加成功")) : gson.toJson(Result.error("添加失败"));
+
+        resp.writeToJson(jsonResponse);
+    }
+
+    /**
+     * 更新车站
+     *
+     * @param req  要求事情
+     * @param resp 分别地
+     */
+    private void update(LhRequest req, LhResponse resp) {
+        String stationid = req.getParameter("stationid");
+        String stationpy = req.getParameter("stationpy");
+        String stationinfo = req.getParameter("stationinfo");
+
+        // 检查stationid是否为null或空
+        if (stationid == null || stationpy == null || stationinfo == null || stationpy.isEmpty() || stationinfo.isEmpty() || stationid.isEmpty()) {
+            resp.writeToJson(gson.toJson(Result.error("更新失败，上传的属性至少有一个为空")));
+            return;
+        }
+        TrainStation trainStation = new TrainStation();
+        trainStation.setStationinfo(DataUtils.decodeChinese(stationinfo));
+        trainStation.setStationid(DataUtils.decodeChinese(stationid));
+        trainStation.setStationpy(DataUtils.decodeChinese(stationpy));
+        boolean res = trainService.update(trainStation);
+        String jsonResponse = res ? gson.toJson(Result.success("更新成功")) : gson.toJson(Result.error("更新失败"));
+
+        resp.writeToJson(jsonResponse);
+    }
+
+    /**
+     * 删除
+     *
+     * @param req  要求事情
+     * @param resp 分别地
+     */
+    private void delete(LhRequest req, LhResponse resp) {
+        String stationid = req.getParameter("stationid");
+
+        // 检查stationid是否为null或空
+        if (stationid == null || stationid.isEmpty()) {
+            resp.writeToJson(gson.toJson(Result.error("需要删除的stationid缺失")));
+            return;
+        }
+        boolean res = trainService.delete(stationid);
+        String jsonResponse = res ? gson.toJson(Result.success("删除成功")) : gson.toJson(Result.error("删除失败"));
+
+        resp.writeToJson(jsonResponse);
+    }
+
 
     /**
      * 按名称分页查询
@@ -53,17 +132,17 @@ public class TrainServlet extends LhHttpServlet {
     private void pageByName(LhRequest req, LhResponse resp) {
         String pageNo = req.getParameter("pageNo");
         String pageName = req.getParameter("pageName");
-        if (null==pageName){
-            pageName="";
+        if (null == pageName) {
+            pageName = "";
         }
         String pageSize = req.getParameter("pageSize");
         // 调用trainService去模糊查询车站
         Page<TrainStation> page = trainService.pageByName(Integer.parseInt(pageNo), Integer.parseInt(pageSize), pageName);
 
-        //1 fastJson 将查询结果转换为JSON字符串
+        // 1 fastJson 将查询结果转换为JSON字符串
         // String presJson=JSON.toJSONString(Result.success(page, "分页查询成功"));
 
-        //2 Gson
+        // 2 Gson
         String presJson = gson.toJson(Result.success(page, "分页查询成功"));
         // 将JSON字符串写入响应对象中
         resp.writeToJson(presJson);
