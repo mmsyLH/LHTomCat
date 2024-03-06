@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="3.1 完成nio线程的2个demo示例">
-      <change afterPath="$PROJECT_DIR$/12306/webapps.7z" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomCatV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhHttpServletV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequestV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponseV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhServletV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/TrainServiceV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/service/UserServiceV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServletV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServletV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServerV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/ServletFactoryV3.java" afterDir="false" />
+    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="3.2 完成v3版本的分离">
+      <change afterPath="$PROJECT_DIR$/NIOServer2/src/thread/TaskThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIOServer2/src/thread/ThreadPoolManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIOServer2/src/thread/SelectorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIOServer2/src/thread/SelectorThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/Thread/LhServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/ServletFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/ServletFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +38,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.8/lib/src.zip!/java.base/java/lang/Thread.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/corretto-17.0.8/lib/src.zip!/java.base/sun/nio/ch/SocketDispatcher.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -120,7 +112,7 @@
       <recent name="lhweb.asia.LHTomCat.thread" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.LhTomCatV3">
+  <component name="RunManager" selected="应用程序.NIOServerV2">
     <configuration name="LhTomCatV3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lhweb.asia.LHTomCat.LhTomCatV3" />
       <module name="LHTomCat" />
@@ -176,8 +168,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.LhTomCatV3" />
         <item itemvalue="应用程序.NIOServerV2" />
+        <item itemvalue="应用程序.LhTomCatV3" />
         <item itemvalue="应用程序.LhTomcatV2" />
         <item itemvalue="应用程序.NIOServer" />
         <item itemvalue="应用程序.TrainService" />
@@ -212,7 +204,7 @@
       <workItem from="1709512933444" duration="23340000" />
       <workItem from="1709553498062" duration="7161000" />
       <workItem from="1709599426093" duration="18205000" />
-      <workItem from="1709686334583" duration="1704000" />
+      <workItem from="1709686334583" duration="4242000" />
     </task>
     <task id="LOCAL-00001" summary="2.1完成数据库连接">
       <created>1708996536745</created>
@@ -256,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709624137793</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="3.2 完成v3版本的分离">
+      <created>1709688659596</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709688659596</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +280,8 @@
     <MESSAGE value="2.3 分页模型的创建" />
     <MESSAGE value="3.0 初步完整，接下来开始优化" />
     <MESSAGE value="3.1 完成nio线程的2个demo示例" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.1 完成nio线程的2个demo示例" />
+    <MESSAGE value="3.2 完成v3版本的分离" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.2 完成v3版本的分离" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,7 +3,6 @@ package thread;
 import http.HttpRequest;
 import http.HttpResponse;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -50,13 +49,12 @@ public class SelectorThread extends Thread {
                         SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
                         HttpRequest httpRequest = new HttpRequest(socketChannel);
                         HttpResponse httpResponse = new HttpResponse(socketChannel);
-                        String uri = httpRequest.getUri();
-                        File file = new File("12306/webapps" + uri);
-                        if (file.exists()) {
-                            httpResponse.write(file);
-                        }
-                        socketChannel.close();
-                        System.out.println("工具人已经下线");
+
+                        // 创建任务
+                        TaskThread taskThread = new TaskThread(httpRequest, httpResponse, socketChannel);
+                        // 用线程管理者去执行任务
+                        ThreadPoolManager.getInstance().execute(taskThread);
+
                     } else if (selectionKey.isWritable()) {// 是否 可以写
                         ServerSocketChannel channel = (ServerSocketChannel) selectionKey.channel();
                         System.out.println("工具人查看到可以写");
