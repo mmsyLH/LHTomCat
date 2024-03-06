@@ -1,6 +1,7 @@
 package lhweb.asia.LHTomCat.servlet;
 
 import com.google.gson.Gson;
+import lhweb.asia.LHTomCat.annotation.WebServlet;
 import lhweb.asia.LHTomCat.common.Result;
 import lhweb.asia.LHTomCat.http.*;
 import lhweb.asia.LHTomCat.model.Page;
@@ -18,6 +19,7 @@ import java.util.List;
  * @author 罗汉
  * @date 2024/02/26
  */
+@WebServlet()
 public class TrainServlet extends LhHttpServlet {
     private TrainService trainService;// 用户服务类
     private Gson gson;// 谷歌的解析json的工具类

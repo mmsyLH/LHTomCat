@@ -28,7 +28,7 @@ function ajaxRes(username, password) {
     console.log("username", username);
     console.log("password", password);
     $.ajax({
-        url: 'LhTomCat/UserServlet',
+        url: 'LhTomCat/userServlet',
         type: 'post',
         data: {
             action: "register",

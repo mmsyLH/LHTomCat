@@ -1,20 +1,22 @@
 package lhweb.asia.LHTomCat.http;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.channels.SocketChannel;
+import java.io.*;
 import java.util.HashMap;
 
 /**
  * 罗汉响应
+ * <p>
+ * 1 LhResponse对象可以封装OutputStream(是socket关联),
+ * 2 即可以通过 HspResponse对象 返回Http响应浏览器/客户端
+ * 3 LhResponse对象的作用等价于原生的servlet的 HttpServletResponse
+ *
  * @author 罗汉
  * @date 2024/02/25
  */
-public class LhResponseV3 {
-    private SocketChannel socketChannel;
+@Deprecated
+public class LhResponseV1 {
+    // 与Socket关联的输出流
+    private OutputStream outputStream;
 
     // Http响应状态行
     public static final String respHeaderOK = "HTTP/1.1 200 OK";
@@ -23,13 +25,12 @@ public class LhResponseV3 {
     private final HashMap<String, String> headers = new HashMap<>();
 
     /**
-     * http响应
      * 创建LhResponse对象
      *
-     * @param socketChannel 套接字通道
+     * @param outputStream 与Socket关联的输出流
      */
-    public LhResponseV3(SocketChannel socketChannel) {
-        this.socketChannel = socketChannel;
+    public LhResponseV1(OutputStream outputStream) {
+        this.outputStream = outputStream;
         // 设置默认的Http响应头部信息
         headers.put("Content-Type", "text/html;charset=UTF-8");
         headers.put("Date", String.valueOf(new java.sql.Date(System.currentTimeMillis()).toLocaleString()));
@@ -54,20 +55,18 @@ public class LhResponseV3 {
         // 获取Http响应头部字节数组
         byte[] buffer = getOkHeaderBytes();
 
-        //将头部字节数组写入byteBuffer中
-        ByteBuffer byteBuffer = ByteBuffer.wrap(buffer);
+        // 发送Http响应头部
         try {
-            socketChannel.write(byteBuffer);
-            byteBuffer=ByteBuffer.allocate(1024);
-            InputStream inputStream=new FileInputStream(file);
-            byte[] buff = new byte[1024];
-            int len;
-            // 逐块读取文件内容并发送
-            while ((len = inputStream.read(buff)) != -1) {
-                byteBuffer.clear();
-                byteBuffer.put(buff, 0, len);
-                byteBuffer.flip();
-                socketChannel.write(byteBuffer);
+            outputStream.write(buffer);
+            outputStream.flush();
+
+            // 发送文件内容
+            InputStream inputStream = new FileInputStream(file);
+            byte[] bytes = new byte[1024];
+            int readLine;
+            while ((readLine = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, readLine);
+                outputStream.flush();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -90,24 +89,24 @@ public class LhResponseV3 {
      * @param data JSON数据
      */
     public void writeToJson(String data) {
-        // int length = data.getBytes().length;
-        // // 设置Content-Length字段为JSON数据长度
-        // headers.put("Content-Length", String.valueOf(length));
-        // // 设置Content-Type字段为application/json
-        // headers.put("Content-Type", "application/json;charset=UTF-8");
-        // // 获取成功响应的Http头部字节数组
-        // byte[] buffer = getOkHeaderBytes();
-        // try {
-        //     // 发送Http响应头部
-        //     outputStream.write(buffer);
-        //     outputStream.flush();
-        //
-        //     // 发送JSON数据内容
-        //     outputStream.write(data.getBytes());
-        //     outputStream.flush();
-        // } catch (IOException e) {
-        //     throw new RuntimeException(e);
-        // }
+        int length = data.getBytes().length;
+        // 设置Content-Length字段为JSON数据长度
+        headers.put("Content-Length", String.valueOf(length));
+        // 设置Content-Type字段为application/json
+        headers.put("Content-Type", "application/json;charset=UTF-8");
+        // 获取成功响应的Http头部字节数组
+        byte[] buffer = getOkHeaderBytes();
+        try {
+            // 发送Http响应头部
+            outputStream.write(buffer);
+            outputStream.flush();
+
+            // 发送JSON数据内容
+            outputStream.write(data.getBytes());
+            outputStream.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -159,6 +158,15 @@ public class LhResponseV3 {
         }
     }
 
+    /**
+     * 获取输出流
+     * 当需要向浏览器返回数据时，可以通过LhResponse对象的输出流完成。
+     *
+     * @return 输出流
+     */
+    public OutputStream getOutputStream() {
+        return outputStream;
+    }
 
     /**
      * 获取Http响应头部信息
@@ -169,4 +177,11 @@ public class LhResponseV3 {
         return headers;
     }
 
+    @Override
+    public String toString() {
+        return "LhResponse{" +
+                "outputStream=" + outputStream +
+                ", headers=" + headers +
+                '}';
+    }
 }

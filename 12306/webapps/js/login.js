@@ -67,7 +67,7 @@ function ajaxLogin(username, password) {
     console.log("username", username);
     console.log("password", password);
     $.ajax({
-        url: 'LhTomCat/UserServlet',
+        url: 'LhTomCat/userServlet',
         type: 'get',
         data: {
             action: "login",

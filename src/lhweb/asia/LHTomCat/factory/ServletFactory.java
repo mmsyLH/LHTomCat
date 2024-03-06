@@ -1,7 +1,6 @@
-package lhweb.asia.LHTomCat.utils;
+package lhweb.asia.LHTomCat.factory;
 
 import lhweb.asia.LHTomCat.http.LhHttpServlet;
-import lhweb.asia.LHTomCat.http.LhHttpServletV3;
 import lhweb.asia.LHTomCat.servlet.TrainServlet;
 import lhweb.asia.LHTomCat.servlet.UserServlet;
 

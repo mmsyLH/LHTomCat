@@ -103,7 +103,7 @@
             }
             var stationName = document.getElementById("stationName").value.trim();
             $.ajax({
-                url: 'LhTomCat/TrainServlet',
+                url: 'LhTomCat/trainServlet',
                 type: 'get',
                 data: {
                     action: "pageByName",
@@ -191,7 +191,7 @@
                 // 发送Ajax请求进行修改
                 $.ajax({
                     method: "post", // 修改为POST请求
-                    url: "LhTomCat/TrainServlet",
+                    url: "LhTomCat/trainServlet",
                     dataType: "json",
                     data: {
                         action: "update",
@@ -217,7 +217,7 @@
                 // 发送Ajax请求进行修改
                 $.ajax({
                     method: "post", // 修改为POST请求
-                    url: "LhTomCat/TrainServlet",
+                    url: "LhTomCat/trainServlet",
                     dataType: "json",
                     data: {
                         action: "add",
@@ -247,7 +247,7 @@
             const { stationid } = stationList[index];
             $.ajax({
                 method: "get",
-                url: "LhTomCat/TrainServlet",
+                url: "LhTomCat/trainServlet",
                 dataType: "json",
                 data: {
                     action: "delete",

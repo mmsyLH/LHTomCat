@@ -5,7 +5,7 @@ function selectTrain() {
     console.log("startstationid",startstationid);
     console.log("endstationid",endstationid);
     $.ajax({
-        url: 'LhTomCat/TrainServlet',
+        url: 'LhTomCat/trainServlet',
         type: 'get',
         data: {
             action: "selectTrain",
@@ -52,7 +52,7 @@ function displayTrainData(data) {
 // function searchStation() {
 //     var stationName = document.getElementById("stationName").value.trim();
 //     $.ajax({
-//         url: 'LhTomCat/TrainServlet',
+//         url: 'LhTomCat/trainServlet',
 //         type: 'get',
 //         data: {
 //             action: "searchStation",
@@ -91,7 +91,7 @@ var pageSize=3;
 function searchStation() {
     var stationName = document.getElementById("stationName").value.trim();
     $.ajax({
-        url: 'LhTomCat/TrainServlet',
+        url: 'LhTomCat/trainServlet',
         type: 'get',
         data: {
             action:"pageByName",

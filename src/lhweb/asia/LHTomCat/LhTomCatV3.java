@@ -18,6 +18,7 @@ import java.nio.channels.ServerSocketChannel;
  */
 public class LhTomCatV3 {
     public static void main(String[] args) {
+
         try {
             // 1.开启服务器通道  ServerSocketChannel比较特殊不实现读和写的接口 本身并不传入数据
             ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
@@ -48,8 +49,6 @@ public class LhTomCatV3 {
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);//
             LhServerV3 selectorThread = new LhServerV3(selector);
             selectorThread.start();
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

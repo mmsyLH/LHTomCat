@@ -1,6 +1,7 @@
 package lhweb.asia.LHTomCat.servlet;
 
 import com.google.gson.Gson;
+import lhweb.asia.LHTomCat.annotation.WebServlet;
 import lhweb.asia.LHTomCat.common.Result;
 import lhweb.asia.LHTomCat.http.LhHttpServlet;
 import lhweb.asia.LHTomCat.http.LhRequest;
@@ -16,6 +17,7 @@ import lhweb.asia.LHTomCat.service.UserService;
  * @author 罗汉
  * @date 2024/02/26
  */
+@WebServlet()
 public class UserServlet extends LhHttpServlet {
     private UserService userService;//用户服务类
     private Gson gson;//谷歌的解析json的工具类

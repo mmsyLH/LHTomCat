@@ -8,8 +8,10 @@ import java.io.IOException;
 import java.nio.channels.SocketChannel;
 
 /**
- * @author :罗汉
- * @date : 2024/3/6
+ * 任务线程
+ *
+ * @author 罗汉
+ * @date 2024/03/06
  */
 public class TaskThread  extends Thread {
     private HttpRequest httpRequest;
