@@ -1,4 +1,4 @@
-package lhweb.asia.LHTomCat.Thread;
+package lhweb.asia.LHTomCat.thread;
 
 import lhweb.asia.LHTomCat.http.LhRequest;
 import lhweb.asia.LHTomCat.http.LhResponse;

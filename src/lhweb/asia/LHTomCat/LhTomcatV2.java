@@ -1,6 +1,6 @@
 package lhweb.asia.LHTomCat;
 
-import lhweb.asia.LHTomCat.Thread.LhServer;
+import lhweb.asia.LHTomCat.thread.LhServer;
 
 import java.io.IOException;
 import java.net.ServerSocket;

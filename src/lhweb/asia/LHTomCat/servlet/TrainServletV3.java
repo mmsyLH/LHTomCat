@@ -2,7 +2,9 @@ package lhweb.asia.LHTomCat.servlet;
 
 import com.google.gson.Gson;
 import lhweb.asia.LHTomCat.common.Result;
-import lhweb.asia.LHTomCat.http.*;
+import lhweb.asia.LHTomCat.http.LhHttpServletV3;
+import lhweb.asia.LHTomCat.http.LhRequestV3;
+import lhweb.asia.LHTomCat.http.LhResponseV3;
 import lhweb.asia.LHTomCat.model.Page;
 import lhweb.asia.LHTomCat.model.TrainNumber;
 import lhweb.asia.LHTomCat.model.TrainStation;
@@ -18,17 +20,17 @@ import java.util.List;
  * @author 罗汉
  * @date 2024/02/26
  */
-public class TrainServlet extends LhHttpServlet {
+public class TrainServletV3 extends LhHttpServletV3 {
     private TrainService trainService;// 用户服务类
     private Gson gson;// 谷歌的解析json的工具类
 
-    public TrainServlet() {
+    public TrainServletV3() {
         gson = new Gson();
         trainService = new TrainService();
     }
 
     @Override
-    public void doGet(LhRequest req, LhResponse resp) {
+    public void doGet(LhRequestV3 req, LhResponseV3 resp) {
         String action = req.getParameter("action");
         if ("selectTrain".equals(action)) {// 检查请求的操作是查询车次
             selectTrain(req, resp);
@@ -48,18 +50,13 @@ public class TrainServlet extends LhHttpServlet {
         }
     }
 
-    @Override
-    public void doPost(LhRequest request, LhResponse response) {
-        this.doGet(request, response);
-    }
-
     /**
      * 添加车站
      *
      * @param req  要求事情
      * @param resp 分别地
      */
-    private void add(LhRequest req, LhResponse resp) {
+    private void add(LhRequestV3 req, LhResponseV3 resp) {
         String stationid = req.getParameter("stationid");
         String stationpy = req.getParameter("stationpy");
         String stationinfo = req.getParameter("stationinfo");
@@ -85,7 +82,7 @@ public class TrainServlet extends LhHttpServlet {
      * @param req  要求事情
      * @param resp 分别地
      */
-    private void update(LhRequest req, LhResponse resp) {
+    private void update(LhRequestV3 req, LhResponseV3 resp) {
         String stationid = req.getParameter("stationid");
         String stationpy = req.getParameter("stationpy");
         String stationinfo = req.getParameter("stationinfo");
@@ -111,7 +108,7 @@ public class TrainServlet extends LhHttpServlet {
      * @param req  要求事情
      * @param resp 分别地
      */
-    private void delete(LhRequest req, LhResponse resp) {
+    private void delete(LhRequestV3 req, LhResponseV3 resp) {
         String stationid = req.getParameter("stationid");
 
         // 检查stationid是否为null或空
@@ -132,7 +129,7 @@ public class TrainServlet extends LhHttpServlet {
      * @param req  要求事情
      * @param resp 分别地
      */
-    private void pageByName(LhRequest req, LhResponse resp) {
+    private void pageByName(LhRequestV3 req, LhResponseV3 resp) {
         String pageNo = req.getParameter("pageNo");
         String pageName = req.getParameter("pageName");
         if (null == pageName) {
@@ -157,7 +154,7 @@ public class TrainServlet extends LhHttpServlet {
      * @param req  要求事情
      * @param resp 分别地
      */
-    private void searchStationLikeName(LhRequest req, LhResponse resp) {
+    private void searchStationLikeName(LhRequestV3 req, LhResponseV3 resp) {
         String stationName = req.getParameter("stationName");
         // 调用trainService去模糊查询车站
         List<TrainStation> trainStations = trainService.searchStationLikeName(stationName);
@@ -182,7 +179,7 @@ public class TrainServlet extends LhHttpServlet {
      * @param req  请求对象，包含请求参数
      * @param resp 响应对象，用于返回结果
      */
-    private void selectTrain(LhRequest req, LhResponse resp) {
+    private void selectTrain(LhRequestV3 req, LhResponseV3 resp) {
         // 解码出发站点和终点站点的中文问题  防止request中解码不成功
         String startstationid = DataUtils.decodeChinese(req.getParameter("startstationid"));
         String endstationid = DataUtils.decodeChinese(req.getParameter("endstationid"));
@@ -204,6 +201,10 @@ public class TrainServlet extends LhHttpServlet {
         resp.writeToJson(presJson);
     }
 
+    @Override
+    public void doPost(LhRequestV3 req, LhResponseV3 res) {
+        doGet(req, res);
+    }
 
     @Override
     public void init() throws Exception {
@@ -214,5 +215,4 @@ public class TrainServlet extends LhHttpServlet {
     public void destroy() {
 
     }
-
 }

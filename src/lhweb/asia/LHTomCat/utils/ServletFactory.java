@@ -1,6 +1,7 @@
 package lhweb.asia.LHTomCat.utils;
 
 import lhweb.asia.LHTomCat.http.LhHttpServlet;
+import lhweb.asia.LHTomCat.http.LhHttpServletV3;
 import lhweb.asia.LHTomCat.servlet.TrainServlet;
 import lhweb.asia.LHTomCat.servlet.UserServlet;
 
@@ -34,7 +35,7 @@ public class ServletFactory {
      * 得到servlet
      *
      * @param url url
-     * @return {@link LhHttpServlet}
+     * @return {@link LhHttpServletV3}
      */
     public LhHttpServlet getServlet(String url) {
         return servletMap.get(url);
