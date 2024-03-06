@@ -9,10 +9,8 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 
 /**
- * 罗汉汤姆猫v3
- * nioserver v2
- * nioserver
- *
+ * 服务器第三版
+ * 使用了线程池 Nio 注解 反射进行优化和封装
  * @author 罗汉
  * @date 2024/03/04
  */

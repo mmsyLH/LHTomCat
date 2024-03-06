@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="3.3 NIOserver2模块加入线程池机制">
-      <change afterPath="$PROJECT_DIR$/lib/dom4j-1.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/annotation/WebServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/factory/ServletFactoryV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/test/ClassTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/TaskThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/ThreadPoolManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/XMLParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12306/webapps/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12306/webapps/js/number.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/number.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12306/webapps/js/res.js" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/js/res.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12306/webapps/views/admin/manage_station.html" beforeDir="false" afterPath="$PROJECT_DIR$/12306/webapps/views/admin/manage_station.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIOServer2/src/thread/TaskThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIOServer2/src/thread/TaskThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/LhServlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/LhServletConfig.xml" afterDir="false" />
+    <list default="true" id="71575baf-ed2d-4ee8-9c0a-2cb98a3a56ef" name="变更" comment="3.4 大提升 完成用注解加反射封装serlvcet">
+      <change afterPath="$PROJECT_DIR$/db/12306.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomCatV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomCatV3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/LhTomcatV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhHttpServletV3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequestV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhRequestV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponseV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhResponseV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/http/LhServletV3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/TrainServletV3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/servlet/UserServletV3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServerV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/thread/LhServerV3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/ServletFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/factory/ServletFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lhweb/asia/LHTomCat/utils/ServletFactoryV3.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +75,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "F:/cykjWorkSpacrce/LHTomCat/src/lhweb/asia/LHTomCat/thread",
+    "last_opened_file_path": "F:/cykjWorkSpacrce/LHTomCat/db",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "SDK",
     "project.structure.proportion": "0.15",
@@ -121,11 +92,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\cykjWorkSpacrce\LHTomCat\db" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat\thread" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\lib" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\src\lhweb\asia\LHTomCat\config" />
       <recent name="F:\cykjWorkSpacrce\LHTomCat\NIOServer2" />
-      <recent name="F:\cykjWorkSpacrce\LHTomCat\12306\webapps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\cykjWorkSpacrce\LHTomCat\resources" />
@@ -239,7 +210,7 @@
       <workItem from="1709512933444" duration="23340000" />
       <workItem from="1709553498062" duration="7161000" />
       <workItem from="1709599426093" duration="18205000" />
-      <workItem from="1709686334583" duration="17050000" />
+      <workItem from="1709686334583" duration="17186000" />
     </task>
     <task id="LOCAL-00001" summary="2.1完成数据库连接">
       <created>1708996536745</created>
@@ -297,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709691889841</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="3.4 大提升 完成用注解加反射封装serlvcet">
+      <created>1709713972649</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709713972649</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +302,8 @@
     <MESSAGE value="3.1 完成nio线程的2个demo示例" />
     <MESSAGE value="3.2 完成v3版本的分离" />
     <MESSAGE value="3.3 NIOserver2模块加入线程池机制" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.3 NIOserver2模块加入线程池机制" />
+    <MESSAGE value="3.4 大提升 完成用注解加反射封装serlvcet" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.4 大提升 完成用注解加反射封装serlvcet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
